@@ -26,7 +26,7 @@ define( 'DB_NAME', 'gymrum_local' );
 define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'Victor1997@!' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
