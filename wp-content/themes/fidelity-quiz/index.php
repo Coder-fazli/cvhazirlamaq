@@ -23,14 +23,14 @@ get_header(); ?>
                 <?php 
                 $hero_image = get_template_directory_uri() . '/assets/home-page.jpg';
                 if (file_exists(get_template_directory() . '/assets/home-page.jpg')): ?>
-                    <img src="<?php echo $hero_image; ?>" alt="Fidelity Quiz" class="hero-image">
+                    <img src="<?php echo $hero_image; ?>" alt="Daily Quiz" class="hero-image">
                 <?php else: ?>
                     <div class="hero-image" style="background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 60px;">&#x1F495;</div>
                 <?php endif; ?>
             </div>
             
             <!-- Main Content -->
-            <h1 class="quiz-title">Fidelity Quiz</h1>
+            <h1 class="quiz-title">Daily Quiz</h1>
             
             <p class="quiz-subtitle">
                 Answer and discover insights about your relationship
@@ -207,7 +207,7 @@ get_header(); ?>
 
         <!-- Lite Results Screen (Hidden initially) -->
         <div id="lite-results" class="result-screen hidden">
-            <h2 class="result-title">Your Fidelity Score</h2>
+            <h2 class="result-title">Your Daily Score</h2>
             
             <div class="score-card">
                 <div class="score-number" id="overall-score">--</div>
