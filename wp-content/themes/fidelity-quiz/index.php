@@ -23,7 +23,7 @@ get_header(); ?>
                 <?php 
                 $hero_image = get_template_directory_uri() . '/assets/home-page.jpg';
                 if (file_exists(get_template_directory() . '/assets/home-page.jpg')): ?>
-                    <img src="<?php echo $hero_image; ?>" alt="Daily Quiz" class="hero-image">
+                    <img src="<?php echo $hero_image; ?>" alt="Sex Quiz" class="hero-image">
                 <?php else: ?>
                     <div class="hero-image" style="background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 60px;">&#x1F495;</div>
                 <?php endif; ?>
