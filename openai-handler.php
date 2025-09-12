@@ -272,14 +272,24 @@ Requirements:
             CURLOPT_POSTFIELDS => json_encode($data),
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_TIMEOUT => 30,
-            CURLOPT_SSL_VERIFYPEER => true
+            CURLOPT_CONNECTTIMEOUT => 10,
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_SSL_VERIFYHOST => 2,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, // Force HTTP/1.1 to avoid HTTP/2 issues
+            CURLOPT_ENCODING => '', // Enable all supported encodings
+            CURLOPT_USERAGENT => 'AI-Name-Rewriter/1.0',
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_MAXREDIRS => 0
         ]);
         
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         
         if (curl_error($ch)) {
-            throw new Exception('CURL Error: ' . curl_error($ch));
+            $curlError = curl_error($ch);
+            $curlErrno = curl_errno($ch);
+            logError("OpenAI Handler Error: CURL Error (Code: $curlErrno): $curlError");
+            throw new Exception('CURL Error: ' . $curlError);
         }
         
         curl_close($ch);
