@@ -3,7 +3,13 @@
 // Security and API settings
 
 // OpenAI API Configuration
-define('OPENAI_API_KEY', 'your-openai-api-key-here'); // Replace with your actual OpenAI API key
+// Load API key from external file (not tracked by git)
+$apiKeyFile = __DIR__ . '/api_key.txt';
+if (file_exists($apiKeyFile)) {
+    define('OPENAI_API_KEY', trim(file_get_contents($apiKeyFile)));
+} else {
+    define('OPENAI_API_KEY', ''); // Will cause error if not set
+}
 define('OPENAI_MODEL', 'gpt-4o-mini');
 define('OPENAI_API_URL', 'https://api.openai.com/v1/chat/completions');
 
