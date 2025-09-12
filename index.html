@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Name Rewriter - Azərbaycan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <i class="fas fa-pencil-alt"></i>
+                    <span>AI Name Rewriter</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Ana səhifə</a>
+                    <a href="#features">Xüsusiyyətlər</a>
+                    <a href="#blog">Bloq</a>
+                    <a href="#about">Haqqında</a>
+                </div>
+                <button class="contact-btn">Əlaqə</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Yazmaq yaradıcılığını artırın</h1>
+                <p>AI Name Rewriter adların mənalarını təhlil edir və yaradıcı təkliflər təqdim edərək yazmaq yaradıcılığınızı artırmağa kömək edir.</p>
+                
+                <div class="rewriter-box">
+                    <div class="input-section">
+                        <textarea id="inputText" placeholder="Buraya ad və ya mətn daxil edin..."></textarea>
+                        <div class="input-controls">
+                            <div class="controls-left">
+                                <span class="word-count">0 Söz</span>
+                                <button class="upload-btn" title="Fayldan yükləyin">
+                                    <i class="fas fa-upload"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rewrite-controls">
+                        <div class="creativity-slider">
+                            <label>Yaradıcılıq səviyyəsi:</label>
+                            <select id="creativityLevel">
+                                <option value="conservative">Konservativ</option>
+                                <option value="balanced" selected>Balanslaşdırılmış</option>
+                                <option value="creative">Yaradıcı</option>
+                                <option value="poetic">Poetik</option>
+                            </select>
+                        </div>
+                        
+                        <div class="language-select">
+                            <label>Dil:</label>
+                            <select id="language">
+                                <option value="az" selected>Azərbaycan dili</option>
+                                <option value="en">English</option>
+                                <option value="tr">Türkçe</option>
+                            </select>
+                        </div>
+                        
+                        <div class="style-select">
+                            <label>Üslub:</label>
+                            <select id="style">
+                                <option value="modern" selected>Müasir</option>
+                                <option value="academic">Akademik</option>
+                                <option value="poetic">Poetik</option>
+                                <option value="casual">Sərbəst</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="rewrite-btn" id="rewriteBtn">
+                        <i class="fas fa-magic"></i>
+                        Yenidən yaz
+                    </button>
+
+                    <div class="output-section" id="outputSection" style="display: none;">
+                        <div class="output-header">
+                            <h3>Yenidən yazılmış mətn</h3>
+                            <div class="output-actions">
+                                <button class="copy-btn" id="copyBtn" title="Kopyala">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="download-btn" id="downloadBtn" title="Yüklə">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="output-text" id="outputText"></div>
+                        <div class="output-stats">
+                            <span id="outputStats"></span>
+                            <span class="uniqueness-score">Unikallıq: <span id="uniquenessScore">95</span>%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Bizim xüsusiyyətlərimiz</h2>
+            <p>AI Name Rewriter adların mənalarını təhlil etmək və yaradıcı məzmun yaratmaq üçün nəzərdə tutulmuş xüsusiyyətlər təklif edir.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Cihazdan yüklə</h3>
+                    <p>Fayllarınızı birbaşa cihazınızdan yükləyin</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Məhdudiyyətsiz sözlər</h3>
+                    <p>İstədiyiniz qədər mətn emal edin</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Avtomatik təkliflər</h3>
+                    <p>AI-nin ağıllı təklifləri</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h3>Bir kliklə düzəliş</h3>
+                    <p>Sürətli və asan istifadə</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use">
+        <div class="container">
+            <div class="how-to-content">
+                <div class="how-to-text">
+                    <h2>Bu AI Name Rewriter-i necə istifadə etmək olar?</h2>
+                    <p>AI Name Rewriter sadə və istifadəsi asan interfeys təklif edir. Peşəkar bacarıq tələb etmir.</p>
+                    
+                    <div class="steps">
+                        <div class="step">
+                            <strong>Addım 1:</strong> Ad və ya istədiyiniz mətni giriş sahəsinə yazın
+                        </div>
+                        <div class="step">
+                            <strong>Addım 2:</strong> Yaradıcılıq səviyyəsi və dil seçin
+                        </div>
+                        <div class="step">
+                            <strong>Addım 3:</strong> "Yenidən yaz" düyməsinə basaraq nəticələri görün
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="how-to-visual">
+                    <div class="demo-box">
+                        <div class="demo-content">
+                            <p>Hərdən sadə bir söz "Əla" kimi hər şey olacaq. Beləcə bizim projektin, bu şəxsin adının mənasını öyrənəcəksən.</p>
+                        </div>
+                        <div class="demo-stats">24 Sözlər</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Best Section -->
+    <section class="why-best">
+        <div class="container">
+            <h2>Bu Azərbaycan Ad Düzəldicisini ən yaxşı edən nədir?</h2>
+            <p>Ən yaxşı yazmaq təcrübəsini təmin edən əsas amillər:</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Dəqiqlik</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Məhdudiyyətsiz təkliflər</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Nəticə yüklə</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Optimallaşdırma</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Bir kliklə düzəliş</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Hamı üçün pulsuz</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2>Bloqlarımız</h2>
+            <p>Yazmaq üçün ən yaxşı kateqoriyaları tapın və axtardığınız məlumatları əldə edin.</p>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <h3>Azərbaycan adlarının mənası və tarixi</h3>
+                        <button class="read-more">Daha çox oxu →</button>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <h3>AI ilə yaradıcı yazma texnikaları</h3>
+                        <button class="read-more">Daha çox oxu →</button>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <h3>Müasir ad seçimi üçün məsləhətlər</h3>
+                        <button class="read-more">Daha çox oxu →</button>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <h3>Ənənəvi və müasir adlar arasında balans</h3>
+                        <button class="read-more">Daha çox oxu →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Tez-tez verilən suallar</h2>
+            <p>Yazmaq prosesi haqqında ən çox verilən sualların cavablarını tapın.</p>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Azərbaycan dilində qrammatik səhvlər nələrdir?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ən çox yayılmış qrammatik səhvlər terminlərin səhv istifadəsi, artikellərin yanlış istifadəsi, zaman formalarının və cümlə quruluşunun təhrif edilməsidir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>AI Name Rewriter-i necə istifadə etmək olar?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sadəcə mətninizi daxil edin, yaradıcılıq səviyyəsini seçin və "Yenidən yaz" düyməsinə basın.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span>AI Name Rewriter</span>
+                    </div>
+                    <p>AI Name Rewriter bütün növ səhvləri təhlil edir və yaradıcı təkliflər təqdim edərək yazmaq yaradıcılığınızı artırmağa kömək edir.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ana səhifə</h4>
+                    <ul>
+                        <li><a href="#">Ana</a></li>
+                        <li><a href="#">Necə istifadə etmək olar</a></li>
+                        <li><a href="#">Bloq</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Name Rewriter. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
